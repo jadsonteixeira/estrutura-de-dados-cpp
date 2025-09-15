@@ -40,7 +40,7 @@ int main (void) {
 
     cout << "\n-> Numero: " << num << endl;
 
-    // TO DO
+    // o nome do vetor já armazena por si só o endereço da primeira posição do vetor
     cout << "\n Vetor: " << vetor;
     cout << "\n Vetor[0]: " << &vetor[0];
 
