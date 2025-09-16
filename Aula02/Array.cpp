@@ -129,3 +129,5 @@ void Array::redimensionar(int novaCapacidade) {
 bool Array::temElementos() const {
     return this->tamanho != 0;
 };
+
+// OBS: perguntar porque o método temElementos() não retorna um bool

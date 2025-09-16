@@ -1,0 +1,1 @@
+Array:: é utilizado porque a definição do método está fora da classe, em outro arquivo (.cpp). É como se ele falasse para o compilador "esse método pertence à classe Array".
