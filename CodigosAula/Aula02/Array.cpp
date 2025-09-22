@@ -107,7 +107,7 @@ int Array::buscaLinear(int valor) const {
 }
 
 void Array::imprimir() const {
-    cout << "\nARRAY: ";
+    cout << "\n ARRAY: ";
     for(int i = 0; i < this->tamanho; i++) {
         cout << this->dados[i] << " ";
     }
