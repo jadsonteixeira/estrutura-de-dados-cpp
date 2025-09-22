@@ -50,14 +50,13 @@ int Array::get(int indice) const {
     throw out_of_range(" Indice invalido!");
 }
 
-void Array::set(int indice, int valor)
-{
+void Array::set(int indice, int valor) {
     if(indice >= 0 && indice < this->tamanho) {
         this->dados[indice] = valor;
         return;
     }
 
-    throw  out_of_range(" Indice invalido!");
+    throw out_of_range(" Indice invalido!");
 }
 
 void Array::inserir(int valor) {
@@ -163,6 +162,52 @@ void Array::redimensionar(int novaCapacidade) {
 
 bool Array::temElementos() const {
     return this->tamanho != 0;
+}
+
+// funcionalidades adicionais
+void Array::inserirNoInicio(int valor) {
+    if (this->tamanho == this->capacidade) {
+        this->capacidade *= 2;
+        this->redimensionar(this->capacidade);
+    }
+
+    // deslocamento dos valores para a direita
+    for (int i = this->tamanho - 1; i >= 0; i--) {
+        this->dados[i + 1] = this->dados[i];
+    }
+
+    this->dados[0] = valor;
+    this->tamanho++;    
+}
+
+bool Array::removerPrimeiro() {
+    if (this->temElementos()) {
+        for (int i = 0; i <= this->tamanho - 1; i++) {
+            this->dados[i] = this->dados[i + 1];
+        }
+        this->tamanho--;
+        return true;
+    }
+
+    return false;
+}
+
+void Array::inserir(int indice, int valor) {
+    if (indice < 0 || indice > this->tamanho) {
+        throw out_of_range("Indice invalido");
+    }
+
+    if (this->tamanho == this->capacidade) {
+        this->capacidade *= 2;
+        this->redimensionar(this->capacidade);
+    }
+
+    for (int i = this->tamanho - 1; i >= indice; i--) {
+        this->dados[i + 1] = this->dados[i];
+    }
+
+    this->dados[indice] = valor;
+    this->tamanho++;
 }
 
 // OBS: perguntar porque o método temElementos() não retorna um bool

@@ -37,6 +37,11 @@ class Array {
 
         void imprimir() const;
 
+        // funcionalidades adicionais
+        void inserirNoInicio(int valor);
+        bool removerPrimeiro();
+        void inserir(int indice, int valor);
+
         // sobrecarga de operadores
         int & operator[](int indice);                  // a1[0] = 2
         int operator[](int indice) const;              // int num = a1[0]
