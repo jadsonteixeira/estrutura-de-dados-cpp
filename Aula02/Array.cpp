@@ -111,6 +111,7 @@ void Array::imprimir() const {
     for(int i = 0; i < this->tamanho; i++) {
         cout << this->dados[i] << " ";
     }
+    cout << "\n";
 }
 
 // sobrecarga de operadores
