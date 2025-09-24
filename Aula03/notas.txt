@@ -1,0 +1,5 @@
+Estudar TEMPLATE
+
+Pilha:
+
+top = retorna o elemento do topo da pilha
