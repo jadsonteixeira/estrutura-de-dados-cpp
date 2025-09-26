@@ -1,23 +1,22 @@
-// arquivo de implementação
+// implementation file
 #include "Stack.hpp"
 
-Stack::Stack(int size) { // OK
+Stack::Stack(int size) {
     if (size <= 0) {
         cout << "ERROR: invalid capacity";
         size = DEFAULT_SIZE;
     }
 
     this->size = size;
-    this->top = -1; // pilha está vazia
+    this->top = -1;
     this->data = new int [this->size];
 } 
 
-// tem um problema que não consigo identificar
-Stack::Stack(const Stack & stack) { // OK
+Stack::Stack(const Stack & stack) {
     this->size = stack.size;
     this->data = new int [this->size];
 
-    for (int i = 0; i < stack.top; i++) {
+    for (int i = 0; i <= stack.top; i++) {
         this->data[i] = stack.data[i];
     }
 
@@ -28,24 +27,16 @@ Stack::~Stack() {
     delete [] data;
 }
 
-// auxiliar
 int Stack::getSize() const {
-    return this->size; // retorna o tamanho
+    return this->size;
 }
 
-// auxiliar
 int Stack::getTop() const {
-    return this->top; // retorna a posição do topo
+    return this->top;
 }
 
-// auxiliar
 int Stack::quantityElements() const {
     return this->getTop() + 1;
-}
-
-// auxiliar
-void Stack::removeLast() {
-    this->top--;
 }
 
 void Stack::push(int value) {
@@ -59,23 +50,28 @@ void Stack::push(int value) {
 }
 
 int Stack::pop() {
-    // TO DO - Não consegui fazer utilizando retorno de função
-    // Alterei pra uma função chamada removeLast do tipo void
+    if (isEmpty()) {
+        throw out_of_range("Stack is empty");
+    }
+
+    int value = this->data[this->top];
+    this->top--;
+    return value;
 }
 
-int Stack::peek() const { // OK
+int Stack::peek() const {
     return this->data[top];
 }
 
-void Stack::clear() { // OK
+void Stack::clear() {
     this->top = -1;
 }
 
-bool Stack::isEmpty() const { // OK
-    return this->top != -1;
+bool Stack::isEmpty() const {
+    return this->top == -1;
 }
 
-void Stack::printStack() const { // OK
+void Stack::printStack() const {
     cout << "\nStack: \n";
     for (int i = 0; i <= this->top; i++) {
         cout << this->data[i] << " ";
@@ -83,10 +79,10 @@ void Stack::printStack() const { // OK
     cout << "\n";
 }
 
-void Stack::resize(int newSize) { // OK
+void Stack::resize(int newSize) {
     int * temp = new int[newSize];
 
-    for (int i = 0; i < this->top; i++) {
+    for (int i = 0; i <= this->top; i++) {
         temp[i] = this->data[i];
     }
 
@@ -96,7 +92,6 @@ void Stack::resize(int newSize) { // OK
     this->size = newSize;
 }
 
-// tem um problema que não consigo identificar
 const Stack & Stack::operator=(const Stack & stack) {
     this->size = stack.size;
     this->top = stack.top;
@@ -105,7 +100,7 @@ const Stack & Stack::operator=(const Stack & stack) {
 
     this->data = new int[this->size];
 
-    for (int i = 0; i < stack.top; i++) {
+    for (int i = 0; i <= stack.top; i++) {
         this->data[i] = stack.data[i];
     }
 

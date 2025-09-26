@@ -32,7 +32,7 @@ class Stack {
 
         const Stack & operator=(const Stack & stack);
 
-        // auxiliares
+        // auxiliary
         int getSize() const;
         int getTop() const;
         int quantityElements() const;
