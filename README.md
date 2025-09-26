@@ -1,4 +1,4 @@
-**Como compilar o código**
+**Como compilar o código (Aula03)**
 
 Navegue até a pasta onde estão as classes:
 cd ./PASTA-DAS-CLASSES
