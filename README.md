@@ -1,10 +1,6 @@
-**Como compilar o código (Aula03)**
+**Códigos das aulas de Estrutura de Dados Lineares**
 
-Navegue até a pasta onde estão as classes:
-cd ./PASTA-DAS-CLASSES
+Assuntos:
 
-Comando para compilar o código:
-g++ Stack.hpp Stack.cpp MainStack.cpp -o MainStack
-
-Comando para rodar o código após a compilação:
-./MainStack
+- Vetores estáticos transformados em vetores dinâmicos (Aula02)
+- Pilha (Aula03)
