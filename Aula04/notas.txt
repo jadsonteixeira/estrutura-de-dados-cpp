@@ -1,0 +1,6 @@
+Lista encadeada/ligada simples
+
+- No
+- Chave
+- Dados
+- Ponteiro

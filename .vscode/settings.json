@@ -5,6 +5,8 @@
         "optional": "cpp",
         "variant": "cpp",
         "iostream": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "compare": "cpp",
+        "type_traits": "cpp"
     }
 }
