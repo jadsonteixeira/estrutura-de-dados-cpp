@@ -1,0 +1,1 @@
+Função virtual puro é obrigatório ser implementado nas subclasses
