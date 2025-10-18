@@ -4,11 +4,17 @@
 int main() {
     system("cls");
 
-    Queue queue = Queue(5);
-    queue.enqueue(1);
-    queue.enqueue(2);
-    cout << queue.getFront() << endl;
-    cout << queue.getRear() << endl;
+    Queue q = Queue(5);
+
+    cout << "Capacity: " << q.getCapacity() << endl;
+    cout << "Enqueue" << endl;
+    q.enqueue(1);
+    q.enqueue(2);
+    q.enqueue(3);
+    q.enqueue(4);
+    q.enqueue(5);
+    cout << "Quantity elements: " << q.getQuantityElements() << endl;
+    q.print();
 
     return 0;
 }

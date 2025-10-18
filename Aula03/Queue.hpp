@@ -14,6 +14,7 @@ class Queue {
         int capacity;
         int front;
         int rear;
+        int quantityElements;
 
         void resize(int newCapacity);
         void deallocate();
@@ -31,6 +32,7 @@ class Queue {
         int dequeue();
 
         int getCapacity() const;
+        int getQuantityElements() const;
 
         void clear();
 
