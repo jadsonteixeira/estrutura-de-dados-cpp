@@ -2,6 +2,7 @@
 #define _DOUBLE_LINKED_LIST_
 
 #include <iostream>
+#include <cstdlib>
 
 using std::cout; // puxa apenas a função do cout
 
@@ -21,7 +22,7 @@ class DoubleLinkedList {
         Node * head;
         Node * tail;
 
-        int legth;
+        int length;
 
     public:
         DoubleLinkedList();

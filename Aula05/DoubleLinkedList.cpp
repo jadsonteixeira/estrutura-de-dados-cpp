@@ -2,7 +2,7 @@
 
 DoubleLinkedList::DoubleLinkedList() {
     this->head = this->tail = nullptr;
-    this->legth = 0;
+    this->length = 0;
 }
 
 DoubleLinkedList::DoubleLinkedList(const DoubleLinkedList & list) {
@@ -18,7 +18,7 @@ bool DoubleLinkedList::isEmpty() const {
 }
 
 int DoubleLinkedList::getLength() const {
-    return this->legth;
+    return this->length;
 }
 
 void DoubleLinkedList::clear() {
@@ -33,7 +33,7 @@ void DoubleLinkedList::clear() {
         }
 
         this->head = this->tail = nullptr;
-        this->legth = 0;
+        this->length = 0;
     }
 }
 
@@ -62,29 +62,53 @@ const Node * DoubleLinkedList::search(int key) const {
 
 bool DoubleLinkedList::insert(int key) {
     Node * current = this->head;
+    Node * previous = nullptr;
 
+    // percorre até encontrar o ponto onde o novo nó entra
     while (current != nullptr && current->key < key) {
+        previous = current;
         current = current->next;
     }
 
+    // se encontrar um nó com a mesma key, não insere
     if (current != nullptr && current->key == key) {
         return false;
-    } else {
-        Node * newNode = new Node();
-        newNode->key = key;
-        if (current == this->head) {
-            newNode->next = this->head;
-            this->head = newNode;
-            newNode->previous = nullptr;
-            if (newNode->next != nullptr) {
-                newNode->next->previous = newNode;
-            } else {
-                this->tail = newNode;
-            }
+    }
+    
+    Node * newNode = new Node();
+    newNode->key = key;
+
+    // inserir no início
+    if (previous == nullptr) {
+        newNode->next = head;
+        newNode->previous = nullptr;
+
+        // se lista não estava vazia, ajusta o prev do head anterior
+        if (this->head != nullptr) {
+            this->head->previous = newNode;
+        } else {
+            // se estava vazia
+            this->tail = newNode;
         }
 
-        return true;
+        this->head = newNode;
+    } else {
+        newNode->next = current;
+        newNode->previous = previous;
+        previous->next = newNode;
+
+        // insere no meio
+        if (current != nullptr) {
+            current->previous = newNode;
+        } else {
+            // insere no fim
+            this->tail = newNode;
+        }
     }
+
+    this->length++;
+
+    return true;
 }
 
 bool DoubleLinkedList::remove(int key) {
