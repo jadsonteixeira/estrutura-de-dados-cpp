@@ -1,6 +1,10 @@
 #include "MaxHeap.hpp"
 
+#include <cstdlib>
+
 int main(void) {
+    system("cls");
+
     MaxHeap heap1;
     MaxHeap heap2;
 
