@@ -11,8 +11,17 @@ int main() {
     dll1.insert(3);
     cout << "DLL: ";
     dll1.print();
-    cout << "\nLength: " << dll1.getLength();
-    cout << "Search: " << dll1.search(1);
+    cout << "\nLength: " << dll1.getLength() << "\n\n";
+
+    DoubleLinkedList dll2;
+    dll2.insert(4);
+    dll2.insert(2);
+    dll2.insert(8);
+    dll2.print();
+
+    cout << "\n\nTest concatenate: \n";
+    dll1.concatenate(dll2);
+    dll1.print();
 
     return 0;
 }

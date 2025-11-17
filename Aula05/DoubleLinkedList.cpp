@@ -116,7 +116,12 @@ bool DoubleLinkedList::remove(int key) {
 }
 
 void DoubleLinkedList::concatenate(const DoubleLinkedList & list) {
+    Node * current = list.head;
 
+    while (current != nullptr) {
+        this->insert(current->key);  // insere mantendo ordenação
+        current = current->next;
+    }
 }
 
 const DoubleLinkedList & DoubleLinkedList::operator=(const DoubleLinkedList & list) {
